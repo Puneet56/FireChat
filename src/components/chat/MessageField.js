@@ -25,7 +25,7 @@ export default function MessageField(props) {
 	};
 
 	return (
-		<div className='h-16 w-full flex items-center justify-center p-2 absolute bottom-0'>
+		<div className='h-16 w-full flex items-center justify-center p-1 absolute bottom-0'>
 			<form className='flex w-full h-full items-stretch'>
 				<input
 					className='w-9/12 h-full border-gray-400 border-solid border-2 bg-gray-600'

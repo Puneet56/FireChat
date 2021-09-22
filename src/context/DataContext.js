@@ -291,7 +291,7 @@ export const DataProvider = (props) => {
 			const q = query(
 				collection(db, 'messages'),
 				orderBy('createdAt', 'desc'),
-				limit(11)
+				limit(25)
 			);
 			return onSnapshot(q, (snapshot) => {
 				setData(

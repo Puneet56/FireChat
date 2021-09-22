@@ -10,8 +10,8 @@ export default function ChatWindow(props) {
 	const dummy = useRef();
 
 	return (
-		<div className='h-[calc(100%-8rem)] flex flex-col-reverse'>
-			<div className='main w-full min-w-full max-h-[calc(100vh-8rem-56px)] sm:max-h-[calc(100vh-8rem)] overflow-y-auto flex justify-start flex-col-reverse relative'>
+		<div className=''>
+			<div className='main w-full min-w-full max-h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-8rem)] overflow-y-auto flex justify-start flex-col-reverse'>
 				{data.length !== 0 &&
 					data.map((item) => {
 						if (dummy.current !== undefined) {
