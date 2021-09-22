@@ -9,7 +9,7 @@ export default function Header(props) {
 	const [showProfile, setShowProfile] = useState(false);
 	return (
 		<header className='w-full h-16 md:h-20 flex items-center justify-start bg-gray-800 p-2 z-[5] md:p-4 absolute top-0'>
-			<h2 className='text-white text-xl md:text-3xl'>#Global Chat</h2>
+			<h2 className='text-white text-xl md:text-3xl'>#globalChat</h2>
 			<div
 				onClick={() => {
 					setShowProfile(!showProfile);
