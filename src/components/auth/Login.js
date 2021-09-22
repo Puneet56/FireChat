@@ -7,7 +7,7 @@ const Login = () => {
 	const [enteredEmail, setEnteredEmail] = useState('');
 	const [enteredPassword, setEnteredPassword] = useState('');
 
-	const { login, currentUser } = useAuth();
+	const { login } = useAuth();
 
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -29,8 +29,6 @@ const Login = () => {
 
 		setLoading(false);
 	};
-
-	console.log('login', currentUser);
 
 	return (
 		<LoadingOverlay active={loading} spinner text='Loading...'>
