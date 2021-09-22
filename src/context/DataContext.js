@@ -24,7 +24,7 @@ export const useData = () => {
 
 export const DataProvider = (props) => {
 	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	// const data = [
 	// 	{
 	// 		uid: '0hpUaD4V6fQNGHMpG0tvj2JwtH62',
@@ -287,6 +287,7 @@ export const DataProvider = (props) => {
 
 	useEffect(() => {
 		if (currentUser !== null) {
+			setLoading(true);
 			const q = query(
 				collection(db, 'messages'),
 				orderBy('createdAt', 'desc'),

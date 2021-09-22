@@ -26,7 +26,6 @@ const Login = () => {
 			setError('failed to login');
 			console.log(error);
 		}
-
 		setLoading(false);
 	};
 
