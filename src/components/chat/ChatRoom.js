@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useRef } from 'react/cjs/react.development';
+import React, { useEffect, useState, useRef } from 'react';
 import ChatWindow from './ChatWindow';
 import Header from './Header';
 import MessageField from './MessageField';
@@ -10,7 +9,7 @@ export default function ChatRoom() {
 	const total = useRef();
 
 	const getRef = (ref) => {
-		console.log(ref);
+		setCloseRef(ref);
 	};
 
 	useEffect(() => {
