@@ -6,7 +6,7 @@ import LoadingOverlay from 'react-loading-overlay';
 const Signup = () => {
 	const [enteredEmail, setEnteredEmail] = useState('');
 	const [enteredPassword, setEnteredPassword] = useState('');
-	const { signup, currentUser } = useAuth();
+	const { signup } = useAuth();
 
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -29,8 +29,6 @@ const Signup = () => {
 
 		setLoading(false);
 	};
-
-	console.log('signup', currentUser);
 
 	return (
 		<LoadingOverlay active={loading} spinner text='Loading...'>
