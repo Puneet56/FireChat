@@ -44,7 +44,9 @@ function Profile(props) {
 					}
 				></img>
 				<span className='mt-4'>
-					{currentUser.email.substring(0, currentUser.email.lastIndexOf('@'))}
+					{currentUser.displayName === null
+						? currentUser.email.substring(0, currentUser.email.lastIndexOf('@'))
+						: currentUser.displayName}
 				</span>
 			</div>
 			<div className='flex flex-col items-center justify-start text-white space-y-3'>

@@ -59,8 +59,6 @@ export const AuthProvider = (props) => {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
-			localStorage.setItem('auth-token', 'firechat ' + user.token);
-			console.log(localStorage.getItem('auth-token'));
 			setCurrentUser(user);
 			setLoading(false);
 		});

@@ -22,7 +22,7 @@ const Signup = () => {
 			await signup(enteredEmail, enteredPassword);
 			history.push('/');
 		} catch (error) {
-			setError('Failed to SignIn');
+			setError('Failed to SignUp');
 			console.log(error);
 		}
 
@@ -34,7 +34,7 @@ const Signup = () => {
 	return (
 		<div className='h-screen items-center justify-center flex flex-col'>
 			{error !== '' && <h1>{error}</h1>}
-			<form className='border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-3 h-96 w-96'>
+			<form className='bg-gray-400 border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-3 h-96 w-96'>
 				<h1>Signup</h1>
 				<label>Enter Email</label>
 				<input

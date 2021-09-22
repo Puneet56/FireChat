@@ -32,9 +32,9 @@ const Login = () => {
 	console.log('login', currentUser);
 
 	return (
-		<div className='h-screen items-center justify-center flex flex-col'>
+		<div className=' h-screen items-center justify-center flex flex-col'>
 			{error !== '' && <h1>{error}</h1>}
-			<form className='border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-4 h-96 w-96'>
+			<form className='bg-gray-400 border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-4 h-96 w-96'>
 				<h1>Login</h1>
 				<label>Enter Email</label>
 				<input

@@ -25,12 +25,7 @@ export default function MessageItem(props) {
 					} `}
 				>
 					<span className='text-xs text-gray-400'>
-						{currentUser.displayName !== null
-							? currentUser.displayName
-							: props.item.email.substring(
-									0,
-									props.item.email.lastIndexOf('@')
-							  )}
+						{props.item.displayName}
 					</span>
 					<span>{props.item.text}</span>
 				</div>

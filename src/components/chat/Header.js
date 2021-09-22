@@ -5,11 +5,17 @@ import Profile from '../user/Profile';
 import OnOutsiceClick from 'react-outclick';
 
 export default function Header(props) {
-	const { currentUser } = useAuth();
+	const { currentUser, logout } = useAuth();
 	const [showProfile, setShowProfile] = useState(false);
 	return (
-		<header className='w-full h-16 md:h-20 flex items-center justify-start bg-gray-800 p-2 z-[5] md:p-4 absolute top-0'>
+		<header className='w-full h-16 md:h-20 flex items-center justify-between bg-gray-800 p-2 z-[5] md:p-4 absolute top-0'>
 			<h2 className='text-white text-xl md:text-3xl'>#globalChat</h2>
+			<button
+				className='bg-gray-500 p-2 px-3 rounded-md hover:border-2 border-gray-300 border-solid'
+				onClick={logout}
+			>
+				SignOut
+			</button>
 			<div
 				onClick={() => {
 					setShowProfile(!showProfile);
