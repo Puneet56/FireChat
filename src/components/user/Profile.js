@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useState, useRef } from 'react';
-import LoadingOverlay from 'react-loading-overlay';
 
 function Profile(props) {
 	const { currentUser, editProfile } = useAuth();
