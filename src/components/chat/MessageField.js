@@ -5,18 +5,23 @@ import { useData } from '../../context/DataContext';
 export default function MessageField(props) {
 	const { currentUser } = useAuth();
 	const { addData } = useData();
+	const [loading, setLoading] = useState(false);
 
 	const [enteredMessage, setEnteredMessage] = useState('');
 
 	const sendMessageHandler = (event) => {
 		event.preventDefault();
+		setLoading(true);
 		try {
 			addData(enteredMessage, currentUser);
+			setLoading(false);
 		} catch (error) {
 			alert('error sending message');
 			console.log('error');
+			setLoading(false);
 		}
 		setEnteredMessage('');
+		setLoading(false);
 	};
 
 	return (
@@ -33,7 +38,7 @@ export default function MessageField(props) {
 					className='mx-auto w-2/12 border-gray-400 border-solid border-2 h-full bg-gray-900 text-white disabled:bg-gray-600 disabled:text-gray-500 disabled:cursor-not-allowed'
 					disabled={!enteredMessage}
 				>
-					SEND
+					{loading ? 'Sending...' : 'Send'}
 				</button>
 			</form>
 		</div>

@@ -14,6 +14,7 @@ import {
 	limit,
 } from 'firebase/firestore';
 import { useAuth } from './AuthContext';
+import LoadingOverlay from 'react-loading-overlay';
 
 const DataContext = createContext();
 
@@ -23,7 +24,7 @@ export const useData = () => {
 
 export const DataProvider = (props) => {
 	const [data, setData] = useState([]);
-
+	const [loading, setLoading] = useState(true);
 	// const data = [
 	// 	{
 	// 		uid: '0hpUaD4V6fQNGHMpG0tvj2JwtH62',
@@ -291,15 +292,13 @@ export const DataProvider = (props) => {
 				orderBy('createdAt', 'desc'),
 				limit(11)
 			);
-
-			console.log('happened');
-
 			return onSnapshot(q, (snapshot) => {
 				setData(
 					snapshot.docs.map((doc) => {
 						return { ...doc.data(), id: doc.id };
 					})
 				);
+				setLoading(false);
 			});
 		}
 	}, [currentUser]);
@@ -310,6 +309,10 @@ export const DataProvider = (props) => {
 	};
 
 	return (
-		<DataContext.Provider value={value}>{props.children}</DataContext.Provider>
+		<LoadingOverlay active={loading} spinner text='Loading...'>
+			<DataContext.Provider value={value}>
+				{props.children}
+			</DataContext.Provider>
+		</LoadingOverlay>
 	);
 };

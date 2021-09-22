@@ -44,3 +44,8 @@
 	right: -400px !important;
 	transition: all 200ms;
 }
+
+._loading_overlay_wrapper {
+	width: 100vw;
+	height: 100vh;
+}

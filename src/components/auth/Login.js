@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import LoadingOverlay from 'react-loading-overlay';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
@@ -32,40 +33,42 @@ const Login = () => {
 	console.log('login', currentUser);
 
 	return (
-		<div className=' h-screen items-center justify-center flex flex-col'>
-			{error !== '' && <h1>{error}</h1>}
-			<form className='bg-gray-400 border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-4 h-96 w-96'>
-				<h1>Login</h1>
-				<label>Enter Email</label>
-				<input
-					className='w-3/4 h-8 border-black border border-solid rounded-sm'
-					type='text'
-					placeholder='Enter email'
-					value={enteredEmail}
-					onChange={(event) => setEnteredEmail(event.target.value)}
-				></input>
-				<label>Enter Password</label>
-				<input
-					className='w-3/4 h-8 border-black border border-solid rounded-sm'
-					type='password'
-					placeholder='Enter password'
-					value={enteredPassword}
-					onChange={(event) => setEnteredPassword(event.target.value)}
-				></input>
-				<button
-					type='submit'
-					disabled={loading}
-					className='w-36 h-8 mt-5 rounded-sm bg-blue-700 text-center border-solid border border-blue-700'
-					onClick={handleSubmit}
-				>
-					Login
-				</button>
-				<h2>Do not Have an Account? </h2>
-				<Link to='/signup'>
-					<button className='w-40 bg-green-500 h-8'>SignUp</button>
-				</Link>
-			</form>
-		</div>
+		<LoadingOverlay active={loading} spinner text='Loading...'>
+			<div className=' h-screen items-center justify-center flex flex-col'>
+				{error !== '' && <h1>{error}</h1>}
+				<form className='bg-gray-400 border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-4 h-96 w-96'>
+					<h1>Login</h1>
+					<label>Enter Email</label>
+					<input
+						className='w-3/4 h-8 border-black border border-solid rounded-sm'
+						type='text'
+						placeholder='Enter email'
+						value={enteredEmail}
+						onChange={(event) => setEnteredEmail(event.target.value)}
+					></input>
+					<label>Enter Password</label>
+					<input
+						className='w-3/4 h-8 border-black border border-solid rounded-sm'
+						type='password'
+						placeholder='Enter password'
+						value={enteredPassword}
+						onChange={(event) => setEnteredPassword(event.target.value)}
+					></input>
+					<button
+						type='submit'
+						disabled={loading}
+						className='w-36 h-8 mt-5 rounded-sm bg-blue-700 text-center border-solid border border-blue-700'
+						onClick={handleSubmit}
+					>
+						Login
+					</button>
+					<h2>Do not Have an Account? </h2>
+					<Link to='/signup'>
+						<button className='w-40 bg-green-500 h-8'>SignUp</button>
+					</Link>
+				</form>
+			</div>
+		</LoadingOverlay>
 	);
 };
 

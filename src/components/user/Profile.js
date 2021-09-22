@@ -1,10 +1,11 @@
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useState, useRef } from 'react';
+import LoadingOverlay from 'react-loading-overlay';
 
 function Profile(props) {
 	const { currentUser, editProfile } = useAuth();
-
+	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
 
 	const emailRef = useRef();
@@ -18,7 +19,8 @@ function Profile(props) {
 			emailRef.current.value,
 			passowrdRef.current.value,
 			displayNameRef.current.value,
-			setError
+			setError,
+			setLoading
 		);
 	};
 
@@ -81,7 +83,7 @@ function Profile(props) {
 						onClick={changeHandler}
 						className='bg-gray-800 p-2 px-3 rounded-md hover:border-2 border-gray-300 border-solid'
 					>
-						Save Changes
+						{loading ? 'Updating...' : 'Save Changes'}
 					</button>
 					<p>{error}</p>
 				</form>

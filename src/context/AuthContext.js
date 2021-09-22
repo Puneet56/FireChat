@@ -9,6 +9,7 @@ import {
 	updateProfile,
 	EmailAuthProvider,
 } from 'firebase/auth';
+import LoadingOverlay from 'react-loading-overlay';
 
 const AuthContext = createContext();
 
@@ -31,7 +32,14 @@ export const AuthProvider = (props) => {
 		return signOut(auth);
 	};
 
-	const editProfile = (email, password, newDisplayName, setError) => {
+	const editProfile = (
+		email,
+		password,
+		newDisplayName,
+		setError,
+		setProfileLoading
+	) => {
+		setProfileLoading(true);
 		let credentials = EmailAuthProvider.credential(email, password);
 
 		reauthenticateWithCredential(currentUser, credentials)
@@ -43,17 +51,20 @@ export const AuthProvider = (props) => {
 						.then(() => {
 							setError('DisplayName Updated sucessfully');
 							console.log('username updated sucessfully');
+							setProfileLoading(false);
 						})
 						.catch((error) => {
 							setError('Error updating Display Name, Try again');
 							console.log('error updating username');
 							console.log(error);
+							setProfileLoading(false);
 						});
 				}
 			})
 			.catch((error) => {
 				setError('Wrong Credentials');
 				console.log(error);
+				setProfileLoading(false);
 			});
 	};
 
@@ -74,8 +85,10 @@ export const AuthProvider = (props) => {
 	};
 
 	return (
-		<AuthContext.Provider value={value}>
-			{!loading && props.children}
-		</AuthContext.Provider>
+		<LoadingOverlay active={loading} spinner text='Loading...'>
+			<AuthContext.Provider value={value}>
+				{!loading && props.children}
+			</AuthContext.Provider>
+		</LoadingOverlay>
 	);
 };
