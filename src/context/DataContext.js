@@ -13,6 +13,7 @@ import {
 	// eslint-disable-next-line
 	limit,
 } from 'firebase/firestore';
+import { useAuth } from './AuthContext';
 
 const DataContext = createContext();
 
@@ -281,24 +282,27 @@ export const DataProvider = (props) => {
 	// 		),
 	// 	[]
 	// );
+	const { currentUser } = useAuth();
 
 	useEffect(() => {
-		const q = query(
-			collection(db, 'messages'),
-			orderBy('createdAt', 'desc'),
-			limit(11)
-		);
-
-		console.log('happened');
-
-		return onSnapshot(q, (snapshot) => {
-			setData(
-				snapshot.docs.map((doc) => {
-					return { ...doc.data(), id: doc.id };
-				})
+		if (currentUser !== null) {
+			const q = query(
+				collection(db, 'messages'),
+				orderBy('createdAt', 'desc'),
+				limit(11)
 			);
-		});
-	}, []);
+
+			console.log('happened');
+
+			return onSnapshot(q, (snapshot) => {
+				setData(
+					snapshot.docs.map((doc) => {
+						return { ...doc.data(), id: doc.id };
+					})
+				);
+			});
+		}
+	}, [currentUser]);
 
 	const value = {
 		addData,
