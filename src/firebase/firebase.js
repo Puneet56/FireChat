@@ -6,6 +6,8 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
+	//your api key
+
 	apiKey: 'AIzaSyCpmtQ5VCMWu87EtJGnOThzWn_dBxtw7So',
 	authDomain: 'firechat-7c780.firebaseapp.com',
 	projectId: 'firechat-7c780',
