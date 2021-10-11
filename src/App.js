@@ -13,7 +13,7 @@ import Main from './Main';
 
 const App = () => {
 	return (
-		<div className='h-screen max-h-[calc(100vh-56px)] sm:max-h-screen bg-green-400 overflow-y-auto overflow-x-hidden w-full min-w-full'>
+		<div className='absolute left-0 right-0 bottom-0 top-0 overflow-y-auto overflow-x-hidden`'>
 			<Router>
 				<AuthProvider>
 					<DataProvider>

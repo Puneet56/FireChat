@@ -23,7 +23,7 @@ const Login = () => {
 			await login(enteredEmail, enteredPassword);
 			history.push('/');
 		} catch (error) {
-			setError('failed to login');
+			setError('Failed to login');
 			console.log(error);
 		}
 		setLoading(false);
@@ -31,13 +31,14 @@ const Login = () => {
 
 	return (
 		<LoadingOverlay active={loading} spinner text='Loading...'>
-			<div className=' h-screen items-center justify-center flex flex-col'>
-				{error !== '' && <h1>{error}</h1>}
-				<form className='bg-gray-400 border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-4 h-96 w-96'>
-					<h1>Login</h1>
+			<div className='h-full relative items-center justify-center flex flex-col bg-gray-800 text-white'>
+				<div className='text-4xl mb-16'>Welcome to FireChat</div>
+				{error !== '' && <h1 className='text-3xl'>{error}</h1>}
+				<form className='border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-4 py-5 w-96'>
+					<h1 className='text-4xl'>Login</h1>
 					<label>Enter Email</label>
 					<input
-						className='w-3/4 h-8 border-black border border-solid rounded-sm'
+						className='w-3/4 h-16 border-4 bg-gray-700 border-gray-400  border-solid rounded-full pl-5 focus:outline-none'
 						type='text'
 						placeholder='Enter email'
 						value={enteredEmail}
@@ -45,7 +46,7 @@ const Login = () => {
 					></input>
 					<label>Enter Password</label>
 					<input
-						className='w-3/4 h-8 border-black border border-solid rounded-sm'
+						className='w-3/4 h-16 border-4 bg-gray-700 border-gray-400  border-solid rounded-full pl-5 focus:outline-none'
 						type='password'
 						placeholder='Enter password'
 						value={enteredPassword}
@@ -54,14 +55,16 @@ const Login = () => {
 					<button
 						type='submit'
 						disabled={loading}
-						className='w-36 h-8 mt-5 rounded-sm bg-blue-700 text-center border-solid border border-blue-700'
+						className='w-36 h-12 mt-5 rounded-lg bg-blue-700 text-center border-solid border border-blue-700'
 						onClick={handleSubmit}
 					>
 						Login
 					</button>
-					<h2>Do not Have an Account? </h2>
+					<h2 className='text-xl'>Do not Have an Account? </h2>
 					<Link to='/signup'>
-						<button className='w-40 bg-green-500 h-8'>SignUp</button>
+						<button className='w-40 bg-green-500 h-12 rounded-lg text-xl text-white'>
+							SignUp
+						</button>
 					</Link>
 				</form>
 			</div>
