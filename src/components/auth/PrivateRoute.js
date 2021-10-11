@@ -11,7 +11,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 				return currentUser ? (
 					<Component {...props} />
 				) : (
-					<Redirect to='/register' />
+					<Redirect to='/signup' />
 				);
 			}}
 		></Route>

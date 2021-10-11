@@ -20,7 +20,7 @@ export default function Header(props) {
 				onClick={() => {
 					setShowProfile(!showProfile);
 				}}
-				className='flex items-center w-max md:hidden absolute right-5 cursor-pointer '
+				className='flex items-center w-max md:hidden absolute right-5 cursor-pointer'
 			>
 				<img
 					src={
