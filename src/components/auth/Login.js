@@ -31,7 +31,7 @@ const Login = () => {
 
 	return (
 		<LoadingOverlay active={loading} spinner text='Loading...'>
-			<div className='h-full relative items-center justify-center flex flex-col bg-gray-800 text-white'>
+			<div className='h-screen relative items-center justify-center flex flex-col bg-gray-800 text-white'>
 				<div className='text-4xl mb-16'>Welcome to FireChat</div>
 				{error !== '' && <h1 className='text-3xl'>{error}</h1>}
 				<form className='border border-solid rounded-lg m-2 flex flex-col items-center justify-center space-y-4 py-5 w-96'>
