@@ -13,7 +13,7 @@ import Main from './Main';
 
 const App = () => {
 	return (
-		<div className='absolute left-0 right-0 bottom-0 top-0 overflow-y-auto overflow-x-hidden`'>
+		<div className='w-full h-full bg-green-500 overflow-y-auto overflow-x-hidden'>
 			<Router>
 				<AuthProvider>
 					<DataProvider>

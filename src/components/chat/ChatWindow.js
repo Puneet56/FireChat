@@ -11,7 +11,7 @@ export default function ChatWindow(props) {
 
 	return (
 		<div className=''>
-			<div className='main w-full min-w-full max-h-[calc(100vh-11rem)] flex-grow overflow-y-auto flex justify-start flex-col-reverse'>
+			<div className='main w-full min-w-full max-h-[calc(100vh-8rem)] flex-grow overflow-y-auto flex justify-start flex-col-reverse'>
 				{data.length !== 0 &&
 					data.map((item) => {
 						if (dummy.current !== undefined) {
