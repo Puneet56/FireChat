@@ -9,11 +9,11 @@ export default function MessageField(props) {
 
 	const [enteredMessage, setEnteredMessage] = useState('');
 
-	const sendMessageHandler = (event) => {
+	const sendMessageHandler = async (event) => {
 		event.preventDefault();
 		setLoading(true);
 		try {
-			addData(enteredMessage, currentUser);
+			await addData(enteredMessage, currentUser);
 			setLoading(false);
 		} catch (error) {
 			alert('error sending message');

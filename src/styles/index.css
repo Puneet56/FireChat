@@ -578,23 +578,11 @@ video {
 		max-width: 1536px;
 	}
 }
-.absolute {
-	position: absolute;
-}
 .relative {
 	position: relative;
 }
-.fixed {
-	position: fixed;
-}
-.left-0 {
-	left: 0px;
-}
-.right-0 {
-	right: 0px;
-}
-.bottom-0 {
-	bottom: 0px;
+.absolute {
+	position: absolute;
 }
 .top-0 {
 	top: 0px;
@@ -602,8 +590,11 @@ video {
 .right-5 {
 	right: 1.25rem;
 }
-.-top-20 {
-	top: -5rem;
+.right-0 {
+	right: 0px;
+}
+.bottom-0 {
+	bottom: 0px;
 }
 .z-\[5\] {
 	z-index: 5;
@@ -645,6 +636,9 @@ video {
 .h-full {
 	height: 100%;
 }
+.h-screen {
+	height: 100vh;
+}
 .h-16 {
 	height: 4rem;
 }
@@ -660,50 +654,20 @@ video {
 .h-8 {
 	height: 2rem;
 }
-.h-screen {
-	height: 100vh;
-}
 .h-1\/5 {
 	height: 20%;
 }
 .h-20 {
 	height: 5rem;
 }
-.h-\[120\%\] {
-	height: 120%;
-}
-.h-\[95vh\] {
-	height: 95vh;
-}
-.h-\[94vh\] {
-	height: 94vh;
-}
-.h-\[93vh\] {
-	height: 93vh;
-}
-.max-h-\[calc\(100vh-11rem\)\] {
-	max-height: calc(100vh - 11rem);
+.max-h-\[calc\(100vh-8rem\)\] {
+	max-height: calc(100vh - 8rem);
 }
 .max-h-screen {
 	max-height: 100vh;
 }
-.max-h-\[calc\(100vh-15rem\)\] {
-	max-height: calc(100vh - 15rem);
-}
-.max-h-\[calc\(100vh-8rem\)\] {
-	max-height: calc(100vh - 8rem);
-}
-.max-h-\[calc\(93vh-8rem\)\] {
-	max-height: calc(93vh - 8rem);
-}
 .min-h-full {
 	min-height: 100%;
-}
-.min-h-\[99vh\] {
-	min-height: 99vh;
-}
-.min-h-\[100vh\] {
-	min-height: 100vh;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -851,6 +815,14 @@ video {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
 }
+.bg-green-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+}
+.bg-yellow-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(251, 191, 36, var(--tw-bg-opacity));
+}
 .bg-gray-800 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
@@ -863,10 +835,6 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
 }
-.bg-green-500 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
-}
 .bg-gray-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
@@ -878,10 +846,6 @@ video {
 .bg-gray-900 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
-}
-.bg-yellow-400 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(251, 191, 36, var(--tw-bg-opacity));
 }
 .object-contain {
 	object-fit: contain;
